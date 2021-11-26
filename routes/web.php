@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\InspirationController;
 use App\Http\Controllers\HotelController;
+use App\Http\Controllers\CurrencyController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,8 +15,10 @@ use App\Http\Controllers\HotelController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', [MainController::class, 'index'])->name('main.index');
-Route::get('/inspirations', [InspirationController::class, 'index'])->name('inspirations.index');
-Route::get('/inspirations/{id}', [InspirationController::class, 'show'])->name('inspirations.show');
-Route::get('/hotel', [HotelController::class, 'index'])->name('hotel.show');
+Route::middleware('check.country')->group(function() {
+    Route::get('/', [MainController::class, 'index'])->name('main.index');
+    Route::get('/inspirations', [InspirationController::class, 'index'])->name('inspirations.index');
+    Route::get('/inspirations/{id}', [InspirationController::class, 'show'])->name('inspirations.show');
+    Route::get('/hotel', [HotelController::class, 'index'])->name('hotel.show');
+    Route::get('/set-currency/{name}', [CurrencyController::class, 'set'])->name('currency.set');
+});

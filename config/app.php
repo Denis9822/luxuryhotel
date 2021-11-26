@@ -161,7 +161,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
+        Victorybiz\GeoIPLocation\GeoIPLocationServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -229,7 +229,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'GeoIPLocation' => Victorybiz\GeoIPLocation\Facades\GeoIPLocationFacade::class,
+        'Localization' => App\Helpers\Localization::class,
+        'Currency' => App\Helpers\Currency::class,
     ],
 
 ];

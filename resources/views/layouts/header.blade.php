@@ -17,20 +17,32 @@
                 <ul class="topbar-items">
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="is_login">
-                            JPY
+                            {{\App\Helpers\Currency::currencyCode()}}
                             <i class="fa fa-angle-down"></i>
                         </a>
-                        <ul class="dropdown-menu text-left width-auto">
-                            <li>
-                                <a href="http://luxuryhotel?set_currency=eur" class="is_login">
-                                    EUR
-                                </a>
+                        <ul class="dropdown-menu text-center width-30 ">
+                            <li class="col-12 text-white">
+                                <b>Top Currencies</b>
                             </li>
-                            <li>
-                                <a href="http://luxuryhotel?set_currency=usd" class="is_login">
-                                    USD
-                                </a>
+                            @foreach(\App\Helpers\Currency::getCurrencies(1) as $currency)
+                                <li class="col-3">
+                                    <a href="{{route('currency.set',['name' => $currency->shortcut])}}" class="is_login">
+                                        {{$currency->shortcut}}
+                                    </a>
+                                </li>
+                            @endforeach
+
+                            <li class="col-12 text-white">
+                                <b>Other Currencies</b>
                             </li>
+                            @foreach(\App\Helpers\Currency::getCurrencies(2) as $currency)
+                                <li class="col-3">
+                                    <a href="{{route('currency.set',['name' => $currency->shortcut])}}" class="is_login">
+                                        {{$currency->shortcut}}
+                                    </a>
+                                </li>
+                            @endforeach
+
                         </ul>
                     </li>
                     <li class="dropdown">
