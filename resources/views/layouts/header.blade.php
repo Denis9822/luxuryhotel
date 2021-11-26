@@ -47,23 +47,18 @@
                     </li>
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="is_login">
-                            <span class="flag-icon flag-icon-gb"></span>
-                            English
+                            {{\App\Helpers\Localization::countryCode()->name}}
                             <i class="fa fa-angle-down"></i>
                         </a>
                         <ul class="dropdown-menu text-left">
+                            @foreach(\App\Helpers\Localization::getCountries() as $country)
                             <li>
-                                <a href="http://luxuryhotel?set_lang=ja" class="is_login">
-                                    <span class="flag-icon flag-icon-jp"></span>
-                                    Japanese
+                                <a href="{{route('localization.set',['name' => $country->shortcut])}}" class="is_login">
+                                    <span class="flag-icon flag-icon-{{$country->flag}}"></span>
+                                    {{$country->name}}
                                 </a>
                             </li>
-                            <li>
-                                <a href="http://luxuryhotel?set_lang=egy" class="is_login">
-                                    <span class="flag-icon flag-icon-eg"></span>
-                                    Egyptian
-                                </a>
-                            </li>
+                            @endforeach
                         </ul>
                     </li>
 

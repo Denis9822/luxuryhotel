@@ -5,6 +5,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\InspirationController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\CurrencyController;
+use App\Http\Controllers\LocalizationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,4 +22,5 @@ Route::middleware('check.country')->group(function() {
     Route::get('/inspirations/{id}', [InspirationController::class, 'show'])->name('inspirations.show');
     Route::get('/hotel', [HotelController::class, 'index'])->name('hotel.show');
     Route::get('/set-currency/{name}', [CurrencyController::class, 'set'])->name('currency.set');
+    Route::get('/set-localization/{name}', [LocalizationController::class, 'set'])->name('localization.set');
 });

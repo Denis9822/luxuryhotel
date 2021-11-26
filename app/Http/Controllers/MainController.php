@@ -11,7 +11,8 @@ class MainController extends Controller
 {
     public function index()
     {
-//        dd(Cookie::get('currency'));
+//        dd(Localization::countryCode());
+
         return view('index');
     }
 }

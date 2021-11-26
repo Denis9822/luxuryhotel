@@ -12,12 +12,12 @@ class Currency
     {
         if(Cookie::get('currency') == null) {
             $geoip = new \Victorybiz\GeoIPLocation\GeoIPLocation();
-            $geoip->setIP('206.71.50.230');
+            $geoip->setIP('94.124.163.50');
             $currencyCode = $geoip->getCurrencyCode();
         }
         else
         {
-            $currencyCode = \App\Models\Currency::where('shortcut',Cookie::get('currency'))->first()->shortcut;
+            $currencyCode = \App\Models\Currency::where('shortcut',Cookie::get('currency'))->first()->shortcut ?? Cookie::get('currency');
         }
         return $currencyCode;
     }
