@@ -5,15 +5,15 @@ namespace App\Helpers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
+use \Torann\GeoIP\Facades\GeoIP;
 
 class Currency
 {
     public static function currencyCode()
     {
         if(Cookie::get('currency') == null) {
-            $geoip = new \Victorybiz\GeoIPLocation\GeoIPLocation();
-            $geoip->setIP('94.124.163.50');
-            $currencyCode = $geoip->getCurrencyCode();
+            $geoData = geoip(request()->ip());
+            $currencyCode = $geoData['currency'];
         }
         else
         {

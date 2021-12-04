@@ -12,3 +12,373 @@
     margin-top: 20px;
     padding: 20px;
 }
+.hotel_location
+{
+    padding: 7px 15px;
+    color: #6CA2FB;
+    border: 1px solid #6CA2FB;
+    border-radius: 10px;
+    width: 100%;
+    margin-top: 5px;
+}
+.hotel_location:active, .hotel_location:focus
+{
+    outline: none;
+}
+.hotel_location::placeholder
+{
+    opacity: 0.5;
+}
+.bravo_wrap .bravo_search_hotel .bravo-list-item .list-item .item-loop-list .g-info .list-star .booking-item-rating-stars
+{
+    width: 100% !important;
+}
+.bravo_wrap .bravo_search_hotel .bravo-list-item .list-item .item-loop-list .thumb-image
+{
+    height: auto !important;
+}
+.form-content
+{
+    position: relative;
+}
+.search-form
+{
+    position: absolute;
+    min-height: 50px;
+    background-color: white;
+    display: none;
+    border: 1px solid #e6e6e6;
+    width: auto;
+    z-index: 11;
+}
+.search_item
+{
+    padding-bottom: 8px;
+    padding-top: 8px;
+    color: #5191fa;
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 400;
+    border-bottom: 1px solid #e6e6e6;
+    min-width: 35px;
+    padding: 10px 5px;
+    list-style-type: none;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+    padding-left: 14px;
+    transition: 0.5s;
+}
+.search_item:hover
+{
+    opacity: 0.7;
+    transition: 0.5s;
+}
+.bravo_wrap .bravo_search_hotel .bravo-list-item .list-item .item-loop-list .g-info
+{
+    flex: 0 0 77% !important;
+}
+.bravo-menu-mobile
+{
+    overflow-y: auto;
+}
+.hover_custom:hover
+{
+    text-decoration: none;
+    color: #007bff;
+}
+.hover_custom .booking_btn:hover
+{
+    opacity: 0.8;
+}
+.spinner-border
+{
+    display: none;
+    margin: 0 auto;
+}
+.cursor-pointer
+{
+    cursor: pointer;
+}
+.bravo_wrap .bravo_search_hotel .bravo-list-item .list-item .item-loop-list .thumb-image
+{
+    flex: 0 0 23% !important;
+}
+.mob
+{
+    display: none !important;
+}
+
+.alig
+{
+    align-items: center;
+}
+.attr-title .item
+{
+    font-size: 20px;
+}
+.star-rate
+{
+    white-space: nowrap;
+}
+.bravo_wrap .bravo_search_hotel .bravo-list-item .list-item .item-loop-list .g-info .location
+{
+    position: relative !important;
+    left: 0 !important;
+    bottom: 0!important;
+    right: 0!important;
+}
+.price
+{
+    text-align: right;
+}
+.price h5
+{
+    font-weight: bold;
+    color: black;
+    font-size: 24px;
+}
+.b_bottom
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.red
+{
+    color: #9C3F3E;
+    font-weight: bold;
+    display: block;
+}
+.green
+{
+    color: #36894F;
+    display: block;
+}
+.btn_block button
+{
+    font-size: 1.25rem !important;
+    font-weight: bold;
+}
+.preloader {
+    /*фиксированное позиционирование*/
+    position: fixed;
+    /* координаты положения */
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    /* фоновый цвет элемента */
+    background: #e0e0e0;
+    /* размещаем блок над всеми элементами на странице (это значение должно быть больше, чем у любого другого позиционированного элемента на странице) */
+    z-index: 1001;
+}
+
+.preloader__row {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 70px;
+    height: 70px;
+    margin-top: -35px;
+    margin-left: -35px;
+    text-align: center;
+    animation: preloader-rotate 2s infinite linear;
+}
+
+.preloader__item {
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    background-color: #337ab7;
+    border-radius: 100%;
+    width: 35px;
+    height: 35px;
+    animation: preloader-bounce 2s infinite ease-in-out;
+}
+
+.preloader__item:last-child {
+    top: auto;
+    bottom: 0;
+    animation-delay: -1s;
+}
+.cssa
+{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+.cssa span
+{
+    margin-bottom: 7px;
+    margin-right: 8px;
+    font-size: 18px;
+}
+@keyframes preloader-rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes preloader-bounce {
+
+    0%,
+    100% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+}
+
+.loaded_hiding .preloader {
+    transition: 0.3s opacity;
+    opacity: 0;
+}
+
+.loaded .preloader {
+    display: none;
+}
+
+@media (max-width: 766px) {
+    .bravo_wrap .bravo_search_hotel .bravo-list-item .list-item .item-loop-list .thumb-image {
+        flex: 0 0 30% !important;
+    }
+    .alig
+    {
+        flex: 0 0 100% !important;
+        align-items: flex-start !important;
+    }
+    .bravo_wrap .bravo_search_hotel .bravo-list-item .list-item .item-loop-list .g-info
+    {
+        flex: 0 0 70% !important;
+    }
+    .star-rate
+    {
+        flex: initial !important;
+    }
+    .alig
+    {
+        flex-direction: column;
+    }
+    .bravo_wrap .bravo_search_hotel .bravo-list-item .list-item .item-loop-list .g-info .star-rate
+    {
+        order:0 !important;
+    }
+    .pc
+    {
+        display: none;
+    }
+    .mob
+    {
+        display: flex !important;
+    }
+    .bravo_wrap .bravo_search_hotel .bravo-list-item .list-item .item-loop-list .g-info .location
+    {
+        order: 0 !important;
+    }
+    .attr-title .item
+    {
+        font-size: 13px;
+    }
+    .item- h5
+    {
+        font-size: 16px;
+        line-height: 1;
+    }
+    .red
+    {
+        line-height: 1;
+        font-size: 11px;
+    }
+    .green
+    {
+        line-height: 1;
+        font-weight: bold;
+        font-size: 11px;
+    }
+    .bravo_wrap .bravo_search_hotel .bravo-list-item .list-item .item-loop-list .g-info .location
+    {
+        margin-top: 0 !important;
+        line-height: 1;
+    }
+    .pri
+    {
+        position: relative;
+        top: 3px;
+    }
+    .pri .item h5
+    {
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .btn_block button
+    {
+        font-size: 14px !important;
+    }
+    .last_b
+    {
+        margin-top: 5px;
+    }
+    .bravo_wrap .bravo_search_hotel .bravo-list-item .list-item .item-loop-list .g-info
+    {
+        padding: 5px !important;
+    }
+    .star-rate
+    {
+        position: relative;
+        bottom: 2px;
+    }
+    .b-2
+    {
+        align-items: center;
+    }
+    .posc
+    {
+        position: relative;
+        bottom: 4px;
+    }
+    .booking-item-rating-stars li
+    {
+        margin-right: 1px !important;
+    }
+    .booking-item-rating-stars li .fa
+    {
+        font-size: 14px !important;
+    }
+    .g-button-submit
+    {
+        position: absolute !important;
+        right: 16px;
+        bottom: 6px;
+
+    }
+    .bravo_wrap .bravo_form .form-group
+    {
+        border-bottom: 0;
+    }
+    .jus-c
+    {
+        justify-content: initial;
+    }
+
+}
+@media (max-width: 400px) {
+    .search-form
+    {
+        left: 0;
+        right: 0;
+        margin-top: 10px;
+    }
+}
+@media (max-width: 360px) {
+
+    .bravo_wrap .bravo_form .form-content .render {
+        font-size: 10px;
+    }
+    .bravo_wrap .bravo_form .form-content label
+    {
+        font-size: 12px;
+    }
+}

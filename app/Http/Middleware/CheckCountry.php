@@ -7,6 +7,7 @@ use App\Helpers\Localization;
 use Closure;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cookie;
 
 class CheckCountry
@@ -25,6 +26,7 @@ class CheckCountry
 
         if(Cookie::get('localization') == null)
             Cookie::queue('localization', Localization::countryCode()->shortcut, 2132131);
+        App::setLocale(Localization::countryCode()->shortcut);
 
             return $next($request);
     }

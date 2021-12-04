@@ -12,6 +12,6 @@ class CurrencyController extends Controller
     {
         Cookie::queue('currency', $name, 2132131);
 
-        return redirect()->route('hotel.show');
+        return redirect()->back();
     }
 }

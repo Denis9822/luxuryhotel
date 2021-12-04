@@ -12,6 +12,6 @@ class LocalizationController extends Controller
     {
         Cookie::queue('localization', $name, 2132131);
 
-        return redirect()->route('hotel.show');
+        return redirect()->back();
     }
 }

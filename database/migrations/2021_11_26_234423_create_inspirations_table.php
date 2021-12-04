@@ -15,6 +15,12 @@ class CreateInspirationsTable extends Migration
     {
         Schema::create('inspirations', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->text('description');
+            $table->integer('order');
+            $table->string('slug');
+            $table->string('preview_image')->nullable();
+            $table->string('background_image')->nullable();
             $table->timestamps();
         });
     }

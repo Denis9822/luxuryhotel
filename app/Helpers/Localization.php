@@ -4,24 +4,19 @@
 namespace App\Helpers;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cookie;
 
 class Localization
 {
-    public static $countries = array(
-        "en-gb","en-us","de","nl","fr","es","es-ar","es-mx","ca","it","pt-pt","pt-br","no","fi","sv",
-        "da","cs","hu","ro","ja","zh-cn","zh-tw","pl","el","ru","tr","bg","ar","ko","he","lv","uk","id",
-        "ms","th","et","hr","lt","sk","sr","sl","vi","tl","is");
 
     public static function countryCode()
     {
         if(Cookie::get('localization') == null) {
-            $geoip = new \Victorybiz\GeoIPLocation\GeoIPLocation();
-            $geoip->setIP('94.124.163.50');
-            $countryCode = strtolower($geoip->getCountryCode());
-
+            $geoData = geoip(request()->ip());
+            $countryCode = strtolower($geoData['iso_code']);
             if ($countryCode == "us" || $countryCode == "gb")
-                $countryCode = 'en-' . $countryCode;
+                $countryCode = 'en-gb';
             elseif ($countryCode == "ar" || $countryCode == "mx")
                 $countryCode = 'es-' . $countryCode;
             elseif ($countryCode == "pr" || $countryCode == "br")
@@ -32,17 +27,23 @@ class Localization
                 $countryCode = 'zh-' . $countryCode;
             elseif ($countryCode == "ua")
                 $countryCode = 'ru';
+            $cotsd = [];
+            foreach (\App\Models\Localization::where('active',1)->get('shortcut')->toArray() as $val)
+            {
+                $cotsd[] = $val['shortcut'];
+            }
 
-
-            if (!in_array($countryCode, self::$countries))
-                $countryCode = "en-us";
+            if (!in_array($countryCode, $cotsd))
+                $countryCode = "en-gb";
 
             $countryData = \App\Models\Localization::where('shortcut',$countryCode)->first();
         }
         else
         {
             $countryData = \App\Models\Localization::where('shortcut',Cookie::get('localization'))->first();
+
         }
+
         return $countryData;
     }
 
@@ -50,7 +51,7 @@ class Localization
     {
         $data = self::countryCode();
 
-       $data = \App\Models\Localization::where('shortcut','<>',$data->shortcut)->get();
+       $data = \App\Models\Localization::where('shortcut','<>',$data->shortcut)->where('active',1)->get();
        return $data;
     }
 }

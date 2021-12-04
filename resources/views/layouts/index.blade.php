@@ -24,7 +24,7 @@
     <!-- Meta -->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>{{$title ?? ''}}</title>
+    @if(isset($title))<title>{{$title ?? ''}}</title>@endif
     @if(isset($description))<meta name="description" content="{{$description ?? ''}}">@endif
     <link rel="canonical" href="{{url()->full()}}">
     <meta content="en-US" http-equiv="Content-Language">
@@ -126,7 +126,9 @@
     <div class="bravo_wrap">
         @include('layouts.header')
         @yield('content')
-        @include('layouts.footer')
+        @if(!isset($footer))
+            @include('layouts.footer')
+        @endif
     </div>
 </body>
     <link rel="stylesheet" href="/libs/flags/css/flag-icon.min.css">
