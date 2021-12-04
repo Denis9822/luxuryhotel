@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnToLocalizationTable extends Migration
+class CreateTextsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class AddColumnToLocalizationTable extends Migration
      */
     public function up()
     {
-        Schema::table('localization', function (Blueprint $table) {
-            $table->string('flag')->nullable();
-            $table->integer('active')->default(1);
+        Schema::create('texts', function (Blueprint $table) {
+            $table->id();
+            $table->string('lang');
+            $table->text('text')->nullable();
+            $table->integer('block_id');
         });
     }
 
@@ -26,8 +28,6 @@ class AddColumnToLocalizationTable extends Migration
      */
     public function down()
     {
-        Schema::table('lozalization', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('texts');
     }
 }

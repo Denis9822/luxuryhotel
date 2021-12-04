@@ -17,7 +17,7 @@ class MainController extends Controller
 {
     public function index()
     {
-        dd(phpinfo());
+
         $inspirations = Inspiration::orderBy('order','asc')->limit(6)->get();
         return view('index',compact('inspirations'));
     }

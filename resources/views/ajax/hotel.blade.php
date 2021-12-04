@@ -70,12 +70,14 @@
                 <div class="price mt-3 pc">
                     <div class="g-attributes">
                         @php
-                            if(isset($hotel['composite_price_breakdown']['gross_amount_per_night']))
+                            if (isset($hotel['min_total_price']))
+                                $price = $hotel['min_total_price'];
+                           else if(isset($hotel['composite_price_breakdown']['gross_amount_per_night']))
                               $price = $hotel['composite_price_breakdown']['gross_amount_per_night']['value'];
                           else if ($hotel['price_breakdown']['gross_price'])
                               $price = $hotel['price_breakdown']['gross_price'];
                           else
-                              $price = $hotel['min_total_price'];
+                              $price = 0;
                         @endphp
                         <span class="item cssa"> <span>{{__('translation.price per day:')}}</span> <h5 >{{Currency::currencyCode()}} {{number_format(Hotel::getExchangePrice($price,$hotel['price_breakdown']['currency']))}}</h5></span>
                     </div>
